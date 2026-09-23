@@ -1,0 +1,38 @@
+/* Recomendaciones de Embalaje - Custom Styles & Micro-animations */
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Banner Header Responsive Background */
+.banner-header-section {
+  background-image: url('/banner_faq.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 88% center;
+}
+
+@media (min-width: 768px) {
+  .banner-header-section {
+    background-position: center center;
+  }
+}

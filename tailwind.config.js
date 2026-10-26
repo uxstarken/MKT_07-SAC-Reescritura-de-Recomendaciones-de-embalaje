@@ -8,25 +8,25 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#00A651',
-          hover: '#008c44',
-          light: '#E6F5ED',
-          dark: '#007537'
+          DEFAULT: '#009D4E',
+          hover: '#008542',
+          light: '#E6F7EF',
+          dark: '#007A3D'
         },
         starken: {
           green: {
-            DEFAULT: '#00A651',
-            dark: '#1A5C35',
-            medium: '#2E7D52',
-            light: '#E8F5EE',
-            badge: '#D2EFE1',
+            DEFAULT: '#009D4E',
+            dark: '#007A3D',
+            medium: '#008542',
+            light: '#E6F7EF',
+            badge: '#D1F2E2',
           },
-          dark: '#1A1A1A',
+          dark: '#303030',
           gray: {
             bg: '#F8FAFC',
             border: '#E2E8F0',
             text: '#64748B',
-            dark: '#334155'
+            dark: '#303030'
           },
           partner: {
             purple: '#551A8B',

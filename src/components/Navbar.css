@@ -75,7 +75,7 @@
   left: 16px;
   right: 16px;
   height: 3px;
-  background-color: #00A651;
+  background-color: #009D4E;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
@@ -140,9 +140,9 @@
 }
 
 .main-link {
-  color: #444444;
+  color: #303030;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -151,13 +151,13 @@
 }
 
 .main-link:hover {
-  color: #00A651;
+  color: #009D4E;
 }
 
 .main-link .chevron-down {
   width: 14px;
   height: 14px;
-  stroke: #00A651;
+  stroke: #009D4E;
 }
 
 .nav-actions {
@@ -166,29 +166,29 @@
   gap: 20px;
 }
 
-/* Botón Ingresa Verde Oficial */
+/* Botón Ingresa Verde Oficial #009D4E */
 .btn-ingresar {
-  background-color: #00A651 !important;
+  background-color: #009D4E !important;
   color: #ffffff !important;
   padding: 10px 36px;
   border-radius: 8px;
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0.02em;
   border: none;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 157, 78, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn-ingresar:hover {
-  background-color: #008c44 !important;
+  background-color: #008542 !important;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 166, 81, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 157, 78, 0.35);
 }
 
 .btn-ingresar:active {
@@ -202,14 +202,14 @@
   border: none;
   cursor: pointer;
   padding: 8px;
-  color: #333333;
+  color: #303030;
   transition: color 0.2s;
   align-items: center;
   justify-content: center;
 }
 
 .hamburger-btn:hover {
-  color: #00A651;
+  color: #009D4E;
 }
 
 /* Mobile Menu Drawer Styles */
@@ -269,7 +269,7 @@
   border: none;
   cursor: pointer;
   padding: 8px;
-  color: #333333;
+  color: #303030;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,7 +277,7 @@
 }
 
 .mobile-menu-close-btn:hover {
-  color: #00A651;
+  color: #009D4E;
 }
 
 .mobile-menu-content {
@@ -302,9 +302,9 @@
   background-color: #fcfcfc;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
-  color: #333333;
+  color: #303030;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: none;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
@@ -312,7 +312,7 @@
 .mobile-menu-link:hover {
   background-color: #f5fcf8;
   border-color: #d2edd9;
-  color: #00A651;
+  color: #009D4E;
 }
 
 .mobile-menu-link .chevron-right {
@@ -323,7 +323,7 @@
 }
 
 .mobile-menu-link:hover .chevron-right {
-  stroke: #00A651;
+  stroke: #009D4E;
 }
 
 .mobile-menu-divider {
@@ -337,19 +337,19 @@
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  color: #555555;
-  font-size: 15px;
+  color: #303030;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .mobile-menu-help:hover {
-  color: #00A651;
+  color: #009D4E;
 }
 
 .mobile-menu-help svg {
-  stroke: #00A651;
+  stroke: #009D4E;
 }
 
 .mobile-menu-actions {
@@ -360,13 +360,13 @@
 }
 
 .mobile-btn-ingresar {
-  background-color: #00A651;
+  background-color: #009D4E;
   color: #ffffff;
   padding: 14px;
   border-radius: 50px;
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
   cursor: pointer;
   text-align: center;
@@ -375,7 +375,7 @@
 }
 
 .mobile-btn-ingresar:hover {
-  background-color: #008c44;
+  background-color: #008542;
 }
 
 /* =========================================
@@ -406,7 +406,7 @@
 @media (max-width: 768px) {
   .top-nav {
     display: flex;
-    background-color: #1A1A1A;
+    background-color: #303030;
     height: auto;
     padding: 8px 12px;
     justify-content: center;

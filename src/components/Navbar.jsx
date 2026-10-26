@@ -144,7 +144,7 @@ const Navbar = () => {
               <button 
                 type="button" 
                 onClick={(e) => e.preventDefault()} 
-                className="btn-ingresar font-din"
+                className="btn-ingresar font-nunito"
               >
                 Ingresar
               </button>
@@ -229,7 +229,7 @@ const Navbar = () => {
               <div className="mobile-menu-actions">
                 <button 
                   type="button" 
-                  className="mobile-btn-ingresar font-din" 
+                  className="mobile-btn-ingresar font-nunito" 
                   onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); }}
                 >
                   Ingresar

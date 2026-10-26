@@ -98,8 +98,7 @@ const EntrepreneursTools = () => {
             <div className="ep-card-content">
               <h4 className="ep-card-title font-din">Internacional</h4>
               <p className="ep-card-desc font-nunito">
-                Facilitamos tus envíos con eficiencia, alcance global y el respaldo
-                de una red experta en logística.
+                Facilitamos la recepción de paquetes desde el extranjero con el respaldo de una red experta en logística.
               </p>
               <button 
                 type="button" 

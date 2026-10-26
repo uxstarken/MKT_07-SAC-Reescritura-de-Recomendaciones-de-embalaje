@@ -11,9 +11,9 @@
   --font-family: var(--font-body);
 
   /* Starken Design System Palettes */
-  --starken-green: #00A651;
-  --starken-green-dark: #1E7E45;
-  --starken-green-light: #E6F5EC;
+  --starken-green: #009D4E;
+  --starken-green-dark: #007A3D;
+  --starken-green-light: #E6F7EF;
 
   /* Partner (Morado) */
   --starken-purple: #551A8B;
@@ -31,7 +31,7 @@
   --starken-orange-light: #FFF7ED;
 
   /* Neutros */
-  --starken-text-dark: #1E293B;
+  --starken-text-dark: #303030;
   --starken-text-muted: #64748B;
   --starken-bg-light: #F8FAFC;
   --starken-border: #E2E8F0;
@@ -48,7 +48,7 @@
   --color-green-medium: var(--starken-green-dark);
   --color-white: #FFFFFF;
   --color-gray-light: #F8FAFC;
-  --color-black: #1A1A1A;
+  --color-black: #303030;
   --color-gray-dark: var(--starken-text-dark);
   --color-gray-text: var(--starken-text-muted);
   --color-green-border: var(--starken-border);

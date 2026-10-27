@@ -429,13 +429,13 @@ export default function RecomendacionesEmbalaje() {
         <section className="pt-12 sm:pt-16 pb-24 sm:pb-32 lg:pb-36 px-6 lg:px-8 bg-[#F8FAFC] border-t border-gray-200">
           <div className="max-w-5xl mx-auto">
             <div className="consideraciones-box">
-              <h2 className="text-[24px] font-bold font-din text-[#303030] mb-4">
+              <h2 className="text-[24px] font-bold font-din text-white mb-4">
                 Consideraciones
               </h2>
-              <p className="text-sm sm:text-base text-[#303030] leading-relaxed mb-4 font-nunito">
+              <p className="text-sm sm:text-base text-white/95 leading-relaxed mb-4 font-nunito">
                 El remitente acepta que Starken podrá rechazar un envío, suspender o cancelar su transporte en caso de que este no se encuentre correctamente embalado o que presente problemas durante su trayecto producto del deficiente embalaje. Los gastos de reembalaje, reenvío o devolución serán de cargo del remitente, así como cualquier daño que con ocasión de su embalaje se genere.
               </p>
-              <p className="text-sm sm:text-base text-[#303030] leading-relaxed font-nunito">
+              <p className="text-sm sm:text-base text-white/95 leading-relaxed font-nunito">
                 La admisión o retiro de un envío por parte de Starken no constituye en ningun caso alguno la aceptación de la idoneidad de su embalaje.
               </p>
             </div>

@@ -14,6 +14,7 @@ import {
   Layers, 
   Tag, 
   Smartphone, 
+  Shapes,
   Droplets, 
   Armchair, 
   Wrench, 
@@ -26,115 +27,177 @@ import Footer from '../components/Footer';
 import HomeChatbot from '../components/HomeChatbot';
 import './RecomendacionesEmbalaje.css';
 
+function MaterialIcon({ type }) {
+  if (type === 'espuma') {
+    return (
+      <svg className="w-12 h-10 object-contain" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="20" cy="24" rx="10" ry="15" fill="#F1F5F9" stroke="#94A3B8" strokeWidth="2" />
+        <ellipse cx="20" cy="24" rx="4" ry="6" fill="#E2E8F0" stroke="#64748B" strokeWidth="1.5" />
+        <path d="M20 9 L46 14 C52 15 56 19 56 24 C56 29 52 33 46 34 L20 39" fill="#F8FAFC" stroke="#94A3B8" strokeWidth="2" />
+        <ellipse cx="46" cy="24" rx="7" ry="10" fill="#E2E8F0" stroke="#64748B" strokeWidth="1.5" />
+      </svg>
+    );
+  }
+  if (type === 'carton') {
+    return (
+      <svg className="w-12 h-10 object-contain" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 16 L32 8 L52 16 L32 24 Z" fill="#D97706" fillOpacity="0.85" stroke="#B45309" strokeWidth="1.5" />
+        <path d="M12 16 L12 22 L32 30 L32 24 Z" fill="#B45309" stroke="#92400E" strokeWidth="1.5" />
+        <path d="M52 16 L52 22 L32 30 L32 24 Z" fill="#92400E" stroke="#78350F" strokeWidth="1.5" />
+        <path d="M12 25 L32 33 L52 25" stroke="#FDE68A" strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M12 27 L12 33 L32 41 L32 35 Z" fill="#B45309" stroke="#92400E" strokeWidth="1.5" />
+        <path d="M52 27 L52 33 L32 41 L32 35 Z" fill="#92400E" stroke="#78350F" strokeWidth="1.5" />
+      </svg>
+    );
+  }
+  if (type === 'film') {
+    return (
+      <svg className="w-12 h-10 object-contain" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="14" width="38" height="20" rx="3" fill="#E0F2FE" stroke="#38BDF8" strokeWidth="1.5" />
+        <ellipse cx="50" cy="24" rx="4" ry="10" fill="#BAE6FD" stroke="#0284C7" strokeWidth="1.5" />
+        <line x1="16" y1="20" x2="46" y2="20" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+        <rect x="8" y="22" width="6" height="4" rx="1" fill="#94A3B8" />
+        <rect x="50" y="22" width="6" height="4" rx="1" fill="#94A3B8" />
+      </svg>
+    );
+  }
+  // madera
+  return (
+    <svg className="w-12 h-10 object-contain" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="10" width="40" height="28" rx="2" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
+      <line x1="32" y1="10" x2="32" y2="38" stroke="#D97706" strokeWidth="1.5" />
+      <line x1="12" y1="24" x2="52" y2="24" stroke="#D97706" strokeWidth="1.5" />
+      <line x1="15" y1="12" x2="29" y2="22" stroke="#B45309" strokeWidth="1" />
+      <line x1="35" y1="12" x2="49" y2="22" stroke="#B45309" strokeWidth="1" />
+      <line x1="15" y1="26" x2="29" y2="36" stroke="#B45309" strokeWidth="1" />
+      <line x1="35" y1="26" x2="49" y2="36" stroke="#B45309" strokeWidth="1" />
+    </svg>
+  );
+}
+
 // Categorías de productos y sus guías detalladas
 const PRODUCT_CATEGORIES = [
   {
     id: 'fragil',
-    name: 'Frágiles, Vidrio y Cerámica',
+    name: 'Frágiles, vidrio y cerámica',
     icon: Wine,
     badge: 'Alta protección',
     badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
-    image: '/ceramica.png',
-    summary: 'Requiere técnica de doble capa, amortiguación interna y señalización visible de fragilidad.',
+    image: '/embalaje/EMBALAJE-04.webp',
+    summary: 'Los objetos frágiles necesitan un material que absorba los golpes durante todo el trayecto.',
     steps: [
-      'Envuelve cada pieza individualmente con 3 a 4 capas de plástico de burbujas (mínimo 5 cm de grosor).',
-      'Usa una caja de cartón corrugado rígido. Deja al menos 6 cm de distancia entre el objeto y las paredes de la caja.',
-      'Rellena los espacios vacíos con cojines de aire o espuma moldeada para evitar cualquier desplazamiento.',
-      'Sella en forma de "H" con cinta resistente y coloca la etiqueta de orientación "FRÁGIL / ESTE LADO ARRIBA".'
+      'Envuelve cada pieza con material que absorba golpes antes de colocarla en la caja.',
+      'Usa una caja sellada, en buen estado y apta para el transporte.',
+      'Si envías varios elementos frágiles, coloca la etiqueta de “Frágil” o de posición.'
     ],
-    materials: ['Plástico burbuja grueso', 'Caja de cartón rígido', 'Cojines de aire', 'Cinta 50mm', 'Etiqueta Frágil'],
-    donts: 'No uses papel de diario arrugado ni virutas sueltas de plumavit; se aplastan con el peso y dejan el producto expuesto.',
+    materials: ['Caja Starken', 'Material que absorba golpes', 'Etiqueta “Frágil” o de posición'],
+    materialsNote: 'Nuestras cajas están hechas con fibras 100% recicladas.',
+    donts: 'No rellenes con papel arrugado, tiras de papel ni virutas de poliestireno: no protegen bien y tu envío podría llegar dañado.',
     sacTip: 'Si envías más de un objeto de vidrio en la misma caja, asegúrate de que no choquen entre sí usando separadores de cartón.'
   },
   {
     id: 'tecnologia',
-    name: 'Tecnología y Celulares',
+    name: 'Tecnología y objetos pequeños',
     icon: Smartphone,
-    badge: 'Alto valor',
-    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-    image: '/smartwatch.png',
-    summary: 'Dispositivos pequeños (celulares, smartwatches, notebooks) deben viajar discretos y amortiguados.',
+    badge: 'Objetos pequeños',
+    badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+    image: '/embalaje/EMBALAJE-03.webp',
+    summary: 'Relojes, celulares, lápices y otros elementos pequeños deben viajar dentro de una caja más grande.',
     steps: [
-      'Si conservas el embalaje original del fabricante con sus molduras, colócalo dentro de una segunda caja neutral.',
-      'Los artículos pequeños (relojes, celulares, audífonos) SIEMPRE deben ir dentro de una caja exterior más grande.',
-      'Apaga completamente el dispositivo y protege la batería contra encendidos accidentales.',
-      'Nunca dejes a la vista logotipos de marcas tecnológicas en la caja exterior para mayor seguridad.'
+      'Guarda el objeto en su caja o empaque.',
+      'Si esa caja indica lo que contiene, ponla dentro de otra caja que lo oculte.',
+      'Sella la caja exterior y revisa que esté en buen estado.'
     ],
-    materials: ['Segunda caja exterior', 'Plástico antiestático / burbuja', 'Relleno de espuma', 'Cinta reforzada'],
-    donts: 'No envíes dispositivos tecnológicos en sobres acolchados simples ni muestres qué contiene el paquete en la caja exterior.',
-    sacTip: 'Declara siempre el valor real de tu equipo tecnológico al momento de emitir tu orden para contar con cobertura total.'
-  },
-  {
-    id: 'liquidos',
-    name: 'Líquidos y Cosméticos',
-    icon: Droplets,
-    badge: 'Hermético',
-    badgeColor: 'bg-cyan-100 text-cyan-800 border-cyan-200',
-    image: '/liquidos-cosmeticos.jpg',
-    summary: 'Doble sellado hermético individual para evitar derrames y daños a otros envíos.',
-    steps: [
-      'Verifica que la tapa o dispensador esté firmemente cerrado y asegúralo con cinta aislante.',
-      'Introduce cada botella o frasco dentro de una bolsa plástica hermética individual con cierre hermético (tipo ziploc).',
-      'Coloca los envases en posición estrictamente vertical dentro de la caja con separadores de cartón.',
-      'Añade material absorbente en el fondo por precaución y coloca la flecha "Hacia Arriba" en el exterior.'
-    ],
-    materials: ['Bolsas herméticas tipo Ziploc', 'Cinta para tapas', 'Separadores de cartón', 'Caja vertical rígida'],
-    donts: 'No envíes líquidos en cajas blandas ni frascos sueltos que puedan chocar o recostarse.',
-    sacTip: 'Recuerda que sustancias inflamables, corrosivas, tóxicas o pinturas con solvente son carga peligrosa no admitida.'
+    materials: ['Caja exterior más grande', 'Material que absorba golpes'],
+    materialsNote: 'Nuestras cajas están hechas con fibras 100% recicladas.',
+    donts: 'No envíes la caja original del producto sin una caja exterior: deja a la vista lo que contiene.',
+    sacTip: 'Declara siempre el valor real de tu equipo u objeto al momento de emitir tu orden para contar con cobertura total.'
   },
   {
     id: 'muebles',
-    name: 'Muebles, Sillones y Colchones',
+    name: 'Muebles y colchones',
     icon: Armchair,
-    badge: 'Voluminoso',
-    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-    image: '/muebles-sillon.jpg',
-    summary: 'Protección 100% de superficies, esquinas reforzadas y sellado con film stretch resistente.',
-    steps: [
-      'Sofás y sillones deben estar 100% cubiertos con cartón corrugado rígido y luego reforzados por film plástico.',
-      'Colchones y bases de cama requieren funda de polietileno de alto micraje sin piquetes ni aberturas.',
-      'Cuadros, espejos y pinturas necesitan protección frontal con cartón prensado o madera enchapada más esquineros.',
-      'Desarma piezas desmontables (patas, manijas) y guárdalas en una bolsa rotulada adherida al mueble.'
-    ],
-    materials: ['Cartón corrugado en rollo', 'Esquineros de cartón prensado', 'Film stretch grueso', 'Funda polietileno'],
-    donts: 'No dejes telas o cueros expuestos sin cartón. El film por sí solo no protege contra golpes o fricción.',
-    sacTip: 'Para cargas sobre 50 kg o de grandes dimensiones, evalúa el servicio palletizado para facilitar el manejo mecánico.'
-  },
-  {
-    id: 'repuestos',
-    name: 'Repuestos Automotrices y Herramientas',
-    icon: Wrench,
-    badge: 'Piezas Pesadas',
-    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
-    image: '/repuestos-auto.jpg',
-    summary: 'Piezas mecánicas limpias, sin fluidos, con esquinas puntiagudas cubiertas y fijación firme.',
-    steps: [
-      'Drena completamente cualquier residuo de aceite, refrigerante o combustible antes de embalar.',
-      'Cubre aristas, puntas y bordes metálicos filosos con cartón grueso o protectores de goma.',
-      'Piezas de gran peso o volumen deben ir en cajón de madera o cartón prensado zunchado a pallet.',
-      'Si la pieza tiene forma irregular que no cabe en caja, debe ir 100% envuelta en cartón rígido y film.'
-    ],
-    materials: ['Cartón corrugado rígido', 'Zunchos plásticos/metálicos', 'Cajón de madera o pallet', 'Film protector'],
-    donts: 'No entregues repuestos grasosos o con fugas. Serán rechazados en sucursal por seguridad.',
-    sacTip: 'Las baterías con ácido o líquidos reactivos son consideradas Carga Peligrosa y no pueden ser transportadas.'
-  },
-  {
-    id: 'textil',
-    name: 'Vestuario, Calzado y Estándar',
-    icon: Shirt,
-    badge: 'Estándar',
-    badgeColor: 'bg-slate-100 text-slate-800 border-slate-200',
-    image: '/parka.png',
-    summary: 'El embalaje más sencillo: protección contra polvo y humedad con sellado firme.',
-    steps: [
-      'Dobla las prendas y guárdalas dentro de una bolsa plástica limpia para aislarla de humedad exterior.',
-      'Colócalas dentro de una caja de cartón adecuada a su tamaño (ni muy apretada ni con exceso de aire).',
-      'Si envías calzado, utiliza la caja de zapatos dentro de una caja exterior o bolsa de envío resistente.',
-      'Cierra con cinta de embalaje en la solapa principal y coloca la etiqueta de envío visible.'
-    ],
-    materials: ['Caja de cartón estándar', 'Bolsa impermeable interna', 'Cinta de embalar de 50mm'],
-    donts: 'No uses bolsas de supermercado delgadas o bolsas de basura; se rompen con facilidad en las cintas de distribución.',
-    sacTip: 'Aprovecha las cajas recicladas de Starken disponibles en todas nuestras sucursales a lo largo del país.'
+    badge: 'Sobredimensionada',
+    badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+    hasSubcategories: true,
+    subcategories: [
+      {
+        id: 'sofas',
+        name: 'Sofás y sillones',
+        badge: 'Sobredimensionada',
+        badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+        image: '/muebles-sillon.jpg',
+        summary: 'Deben ir completamente cubiertos de cartón corrugado rígido y reforzados con film.',
+        steps: [
+          'Cubre el mueble al 100% con cartón corrugado rígido.',
+          'Refuerza la cobertura con film.'
+        ],
+        materialsList: [
+          { name: 'Espuma', status: 'Necesario', isNeeded: true, type: 'espuma' },
+          { name: 'Cartón corrugado', status: 'Necesario', isNeeded: true, type: 'carton' },
+          { name: 'Film', status: 'Necesario', isNeeded: true, type: 'film' },
+          { name: 'Estructura de madera', status: 'No aplica', isNeeded: false, type: 'madera' }
+        ],
+        oversized: {
+          title: 'CARGA SOBREDIMENSIONADA',
+          text: 'Asegúrala con estructuras fuertes (madera o metal) y envuélvela con materiales resistentes (plástico o lona). Márcala con etiquetas de "Frágil" o "Mantener en posición vertical".',
+          linkText: 'Ver condiciones de carga sobredimensionada →',
+          linkUrl: '#'
+        }
+      },
+      {
+        id: 'comedores',
+        name: 'Comedores, sitiales y poltronas',
+        title: 'Juegos de comedor, sitiales y poltronas',
+        badge: 'Sobredimensionada',
+        badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+        image: '/comedor-sitiales.jpg',
+        summary: 'Envíalos con el embalaje original del fabricante o envueltos en polietileno sin daños.',
+        opsNote: '[Texto igual al de Colchones en la página actual: validar con Operaciones]',
+        steps: [
+          'Usa el embalaje original del fabricante.',
+          'Si no lo tienes, envuélvelo con polietileno.',
+          'Revisa que el material no tenga piquetes ni aberturas.'
+        ],
+        materialsList: [
+          { name: 'Espuma', status: 'Necesario', isNeeded: true, type: 'espuma' },
+          { name: 'Cartón corrugado', status: 'Necesario', isNeeded: true, type: 'carton' },
+          { name: 'Film', status: 'No aplica', isNeeded: false, type: 'film' },
+          { name: 'Estructura de madera', status: 'No aplica', isNeeded: false, type: 'madera' }
+        ],
+        oversized: {
+          title: 'CARGA SOBREDIMENSIONADA',
+          text: 'Asegúrala con estructuras fuertes (madera o metal) y envuélvela con materiales resistentes (plástico o lona). Márcala con etiquetas de "Frágil" o "Mantener en posición vertical".',
+          linkText: 'Ver condiciones de carga sobredimensionada →',
+          linkUrl: '#'
+        }
+      },
+      {
+        id: 'colchones',
+        name: 'Colchones y bases de cama',
+        badge: 'Sobredimensionada',
+        badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+        image: '/colchon-cama.jpg',
+        summary: 'Envíalos con el embalaje original del fabricante o envueltos en polietileno sin daños.',
+        steps: [
+          'Usa el embalaje original del fabricante.',
+          'Si no lo tienes, envuélvelo con polietileno.',
+          'Revisa que el material no tenga piquetes ni aberturas.'
+        ],
+        materialsList: [
+          { name: 'Espuma', status: 'Necesario', isNeeded: true, type: 'espuma' },
+          { name: 'Cartón corrugado', status: 'Necesario', isNeeded: true, type: 'carton' },
+          { name: 'Film', status: 'No aplica', isNeeded: false, type: 'film' },
+          { name: 'Estructura de madera', status: 'No aplica', isNeeded: false, type: 'madera' }
+        ],
+        oversized: {
+          title: 'CARGA SOBREDIMENSIONADA',
+          text: 'Asegúrala con estructuras fuertes (madera o metal) y envuélvela con materiales resistentes (plástico o lona). Márcala con etiquetas de "Frágil" o "Mantener en posición vertical".',
+          linkText: 'Ver condiciones de carga sobredimensionada →',
+          linkUrl: '#'
+        }
+      }
+    ]
   }
 ];
 
@@ -164,6 +227,7 @@ const FAQ_SAC = [
 
 export default function RecomendacionesEmbalaje() {
   const [selectedCategory, setSelectedCategory] = useState(PRODUCT_CATEGORIES[0].id);
+  const [selectedSubcategory, setSelectedSubcategory] = useState('sofas');
   const [openFaq, setOpenFaq] = useState(null);
   const tabsContainerRef = useRef(null);
 
@@ -177,8 +241,24 @@ export default function RecomendacionesEmbalaje() {
   };
 
   const activeCategoryData = useMemo(() => {
-    return PRODUCT_CATEGORIES.find(c => c.id === selectedCategory) || PRODUCT_CATEGORIES[0];
-  }, [selectedCategory]);
+    const cat = PRODUCT_CATEGORIES.find(c => c.id === selectedCategory) || PRODUCT_CATEGORIES[0];
+    if (cat.hasSubcategories && cat.subcategories) {
+      const sub = cat.subcategories.find(s => s.id === selectedSubcategory) || cat.subcategories[0];
+      return {
+        ...cat,
+        ...sub,
+        name: sub.name,
+        title: sub.title || sub.name,
+        badge: sub.badge,
+        badgeColor: sub.badgeColor,
+        isSubcategory: true
+      };
+    }
+    return {
+      ...cat,
+      title: cat.name
+    };
+  }, [selectedCategory, selectedSubcategory]);
 
   const toggleFaq = (idx) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -264,6 +344,34 @@ export default function RecomendacionesEmbalaje() {
 
             {/* Contenido de la Categoría Seleccionada */}
             <div className="bg-[#F8FAFC] border border-gray-200 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm">
+              {/* Sub-selector para Muebles y Colchones */}
+              {activeCategoryData.hasSubcategories && (
+                <div className="mb-8 pb-6 border-b border-gray-200/80">
+                  <span className="text-[11px] font-bold font-din uppercase tracking-wider text-gray-500 mb-2.5 block">
+                    ELIGE TU PRODUCTO
+                  </span>
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    {PRODUCT_CATEGORIES.find(c => c.id === 'muebles')?.subcategories.map((sub) => {
+                      const isSubSelected = selectedSubcategory === sub.id;
+                      return (
+                        <button
+                          key={sub.id}
+                          type="button"
+                          onClick={() => setSelectedSubcategory(sub.id)}
+                          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                            isSubSelected
+                              ? 'bg-white text-[#00A651] border-2 border-[#00A651] shadow-xs'
+                              : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-300'
+                          }`}
+                        >
+                          {sub.name}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Columna Izquierda: Pasos y Recomendaciones */}
                 <div className="lg:col-span-8">
@@ -272,22 +380,30 @@ export default function RecomendacionesEmbalaje() {
                       {activeCategoryData.badge}
                     </span>
                     <h3 className="text-2xl font-extrabold font-din text-gray-900">
-                      {activeCategoryData.name}
+                      {activeCategoryData.title || activeCategoryData.name}
                     </h3>
                   </div>
 
-                  <p className="text-gray-700 font-nunito text-base mb-6 leading-relaxed">
+                  <p className="text-gray-700 font-nunito text-base mb-4 leading-relaxed">
                     {activeCategoryData.summary}
                   </p>
 
-                  <h4 className="text-sm font-bold font-din uppercase tracking-wider text-gray-900 mb-4 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#00A651]" />
-                    Instrucciones de embalaje recomendadas
+                  {/* Nota de validación con Operaciones si existe */}
+                  {activeCategoryData.opsNote && (
+                    <div className="mb-6">
+                      <span className="inline-block border border-dashed border-amber-400 text-amber-800 bg-amber-50/70 rounded-md px-3 py-1.5 text-xs font-semibold font-nunito">
+                        {activeCategoryData.opsNote}
+                      </span>
+                    </div>
+                  )}
+
+                  <h4 className="text-xs sm:text-sm font-bold font-din uppercase tracking-wider text-[#00853f] mb-4">
+                    INSTRUCCIONES DE EMBALAJE
                   </h4>
 
                   <div className="space-y-3 mb-8">
                     {activeCategoryData.steps.map((step, idx) => (
-                      <div key={idx} className="flex items-start gap-3 bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-xs">
+                      <div key={idx} className="flex items-start gap-3 bg-white p-3.5 sm:p-4 rounded-xl border border-gray-200/80 shadow-xs">
                         <div className="w-6 h-6 rounded-full bg-[#E6F5ED] text-[#00A651] flex items-center justify-center font-din font-bold text-xs shrink-0 mt-0.5">
                           {idx + 1}
                         </div>
@@ -298,59 +414,130 @@ export default function RecomendacionesEmbalaje() {
                     ))}
                   </div>
 
-                  {/* Alerta de Error Común (Don't) */}
-                  <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
-                    <XCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                  {/* Materiales Necesarios (en Muebles) o Alerta Lo que debes evitar (en otras categorías) */}
+                  {activeCategoryData.materialsList ? (
                     <div>
-                      <h5 className="text-sm font-bold font-din text-rose-900 mb-1">
-                        Lo que debes evitar:
-                      </h5>
-                      <p className="text-xs sm:text-sm text-rose-800 font-nunito leading-relaxed">
-                        {activeCategoryData.donts}
-                      </p>
+                      <h4 className="text-xs sm:text-sm font-bold font-din uppercase tracking-wider text-gray-900 mb-3">
+                        MATERIALES NECESARIOS
+                      </h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {activeCategoryData.materialsList.map((item, idx) => (
+                          <div 
+                            key={idx}
+                            className={`bg-white rounded-2xl p-3.5 sm:p-4 border transition-all flex flex-col justify-between items-start gap-3 shadow-xs ${
+                              item.isNeeded ? 'border-emerald-300 hover:border-[#00A651]' : 'border-gray-200 bg-gray-50/50'
+                            }`}
+                          >
+                            <div className="w-full h-12 flex items-center justify-center">
+                              <MaterialIcon type={item.type} />
+                            </div>
+                            <div>
+                              <h5 className="text-xs sm:text-sm font-bold font-din text-gray-900 leading-tight mb-1.5">
+                                {item.name}
+                              </h5>
+                              <span className={`inline-block text-[11px] font-bold font-din px-2 py-0.5 rounded-full ${
+                                item.isNeeded 
+                                  ? 'bg-[#E6F5EC] text-[#00A651]' 
+                                  : 'bg-gray-100 text-gray-500'
+                              }`}>
+                                {item.status}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    /* Alerta de Error Común (Don't) */
+                    <div className="bg-[#FFF5F5] border border-[#FED7D7] rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
+                      <XCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                      <div>
+                        <h5 className="text-sm font-bold font-din text-rose-900 mb-1">
+                          Lo que debes evitar
+                        </h5>
+                        <p className="text-xs sm:text-sm text-rose-800 font-nunito leading-relaxed">
+                          {activeCategoryData.donts}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Columna Derecha: Fotografía + Materiales Clave + Tip SAC */}
+                {/* Columna Derecha: Fotografía + Carga Sobredimensionada o Materiales Clave + Tip SAC */}
                 <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
-                  {/* Fotografía de los elementos de la categoría (Borde blanco con radio 14px exterior y 7px interior) */}
-                  <div className="bg-white rounded-[14px] border border-gray-200 shadow-xs p-2.5 sm:p-3 overflow-hidden">
-                    <div className="w-full aspect-square max-h-64 sm:max-h-72 rounded-[7px] overflow-hidden bg-gray-100 flex items-center justify-center">
+                  {/* Fotografía de los elementos de la categoría */}
+                  <div className="bg-white rounded-2xl border border-gray-200 shadow-xs p-4 flex items-center justify-center overflow-hidden">
+                    <div className="w-full h-48 sm:h-56 flex items-center justify-center">
                       <img 
                         src={activeCategoryData.image} 
                         alt={activeCategoryData.name} 
-                        className="w-full h-full object-cover rounded-[7px]"
+                        className="max-h-full max-w-full object-contain"
                       />
                     </div>
                   </div>
 
-                  {/* Materiales requeridos */}
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
-                    <h4 className="text-sm font-bold font-din uppercase tracking-wider text-gray-900 mb-4 flex items-center gap-2">
-                      <Box className="w-4 h-4 text-[#00A651]" />
-                      Materiales indispensables
-                    </h4>
-                    <ul className="space-y-2.5">
-                      {activeCategoryData.materials.map((mat, i) => (
-                        <li key={i} className="flex items-center gap-2 text-xs sm:text-sm font-nunito text-gray-700">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#00A651]"></div>
-                          <span>{mat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Tip SAC */}
-                  <div className="bg-emerald-900 text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
-                    <div className="flex items-center gap-2 text-[#00A651] text-xs font-bold uppercase tracking-wider mb-2">
-                      <Info className="w-4 h-4" />
-                      Consejo de Servicio al Cliente
+                  {/* Si es sobredimensionada (muebles) mostrar tarjeta de Carga Sobredimensionada */}
+                  {activeCategoryData.oversized ? (
+                    <div className="bg-white border border-amber-300 rounded-3xl p-5 sm:p-6 shadow-xs flex items-start gap-4">
+                      <div className="w-14 h-20 shrink-0 flex items-center justify-center">
+                        <svg className="w-full h-full" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 22 L32 12 L52 22 L32 32 Z" fill="#F59E0B" stroke="#D97706" strokeWidth="1.5"/>
+                          <path d="M12 22 L12 68 L32 78 L32 32 Z" fill="#D97706" stroke="#B45309" strokeWidth="1.5"/>
+                          <path d="M52 22 L52 68 L32 78 L32 32 Z" fill="#B45309" stroke="#92400E" strokeWidth="1.5"/>
+                          <rect x="16" y="32" width="12" height="16" rx="1" fill="#FEF2F2" stroke="#EF4444" strokeWidth="1"/>
+                          <path d="M22 36 L22 41 M20 37 L24 37" stroke="#DC2626" strokeWidth="1.5" strokeLinecap="round"/>
+                          <ellipse cx="22" cy="44" rx="2" ry="1" fill="#DC2626"/>
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-xs sm:text-sm font-extrabold font-din uppercase tracking-wider text-[#9A3412] mb-1.5">
+                          {activeCategoryData.oversized.title}
+                        </h4>
+                        <p className="text-xs text-gray-700 font-nunito leading-relaxed mb-3">
+                          {activeCategoryData.oversized.text}
+                        </p>
+                        <a 
+                          href={activeCategoryData.oversized.linkUrl} 
+                          className="text-xs font-bold font-din text-[#00853f] hover:underline inline-flex items-center gap-1"
+                        >
+                          {activeCategoryData.oversized.linkText}
+                        </a>
+                      </div>
                     </div>
-                    <p className="text-xs sm:text-sm text-emerald-100 font-nunito leading-relaxed">
-                      "{activeCategoryData.sacTip}"
-                    </p>
-                  </div>
+                  ) : (
+                    <>
+                      {/* Materiales requeridos */}
+                      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs">
+                        <h4 className="text-xs sm:text-sm font-bold font-din uppercase tracking-wider text-gray-900 mb-4">
+                          MATERIALES RECOMENDADOS
+                        </h4>
+                        <ul className="space-y-2.5">
+                          {activeCategoryData.materials?.map((mat, i) => (
+                            <li key={i} className="flex items-center gap-2 text-xs sm:text-sm font-nunito text-gray-700">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#00A651]"></div>
+                              <span>{mat}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {activeCategoryData.materialsNote && (
+                          <p className="text-xs font-nunito text-gray-500 mt-4 leading-relaxed">
+                            {activeCategoryData.materialsNote}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Tip SAC */}
+                      <div className="bg-emerald-900 text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-[#00A651] text-xs font-bold uppercase tracking-wider mb-2">
+                          <Info className="w-4 h-4" />
+                          Consejo de Servicio al Cliente
+                        </div>
+                        <p className="text-xs sm:text-sm text-emerald-100 font-nunito leading-relaxed">
+                          "{activeCategoryData.sacTip}"
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

@@ -6,9 +6,9 @@ const SliderBanner = ({ compact = false }) => {
 
   const slides = [
     {
-      titlePart1: "TU FORMA DE GANAR",
-      titlePart2: "TIEMPO ",
-      titlePart3: "ENVIANDO",
+      titlePart1: "Tu forma de ganar",
+      titlePart2: "tiempo ",
+      titlePart3: "enviando",
       subtitle: "Desde el primer click, envía rápido con seguridad y confianza.",
       buttonText: "Crea tu envío",
       image: "/starkin-banner.png",
@@ -16,9 +16,9 @@ const SliderBanner = ({ compact = false }) => {
       imageAlt: "Mascota Starkin llevando paquetes"
     },
     {
-      titlePart1: "CONECTAMOS TUS",
-      titlePart2: "NEGOCIOS ",
-      titlePart3: "A TODO CHILE",
+      titlePart1: "Conectamos tus",
+      titlePart2: "negocios ",
+      titlePart3: "a todo Chile",
       subtitle: "Llegamos a cada rincón con el mejor respaldo para tu empresa.",
       buttonText: "Conoce más",
       image: "/Hombre-banner.png",
@@ -27,9 +27,9 @@ const SliderBanner = ({ compact = false }) => {
       layout: "courier-slide"
     },
     {
-      titlePart1: "NUEVAS TARIFAS",
-      titlePart2: "ESPECIALES ",
-      titlePart3: "PARA PYMES",
+      titlePart1: "Nuevas tarifas",
+      titlePart2: "especiales ",
+      titlePart3: "para pymes",
       subtitle: "Optimiza tus costos con nuestros planes pensados para ti.",
       buttonText: "Cotizar ahora",
       image: "/slide3-bg.png",

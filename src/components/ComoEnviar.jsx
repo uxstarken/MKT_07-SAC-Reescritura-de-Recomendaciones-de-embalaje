@@ -107,7 +107,7 @@ const ComoEnviar = () => {
 
   return (
     <section className="como-enviar-section" ref={sectionRef}>
-      <h2 className="como-enviar-title font-din">Cómo enviar con <span>STARKEN</span> <br className="mobile-br" />en 4 pasos</h2>
+      <h2 className="como-enviar-title font-din">Cómo enviar con <span>Starken</span> <br className="mobile-br" />en 4 pasos</h2>
       
       <div 
         className="como-enviar-grid"

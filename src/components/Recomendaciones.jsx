@@ -50,7 +50,7 @@ const Recomendaciones = () => {
         
         {/* Contenido (tarjetas y título) */}
         <div className={`recom-content-container ${isVisible ? 'animate-fade-left' : ''}`}>
-          <h2 className="recom-title font-din">RECOMENDACIONES</h2>
+          <h2 className="recom-title font-din">Recomendaciones</h2>
           
           <div className="recom-list">
             {items.map((item, idx) => (

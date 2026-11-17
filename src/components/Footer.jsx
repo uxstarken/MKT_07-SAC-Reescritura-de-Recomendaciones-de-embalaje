@@ -88,7 +88,7 @@ const Footer = () => {
 
         {/* Columna 5: Redes y CTA */}
         <div className="footer-col social-col">
-          <h4 className="footer-heading uppercase static font-din">SÍGUENOS EN NUESTRAS REDES SOCIALES</h4>
+          <h4 className="footer-heading static font-din">Síguenos en nuestras redes sociales</h4>
           <hr className="footer-divider" />
           <div className="social-icons">
             <a href="#" onClick={(e) => e.preventDefault()} aria-label="Facebook">
